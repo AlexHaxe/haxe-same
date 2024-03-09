@@ -54,3 +54,7 @@ choose according to previous step
 ```bash
 ./bin/UITestMain
 ```
+
+you should see something like:
+
+![UI-test animation](assets/images/FlixelUITest.gif)
