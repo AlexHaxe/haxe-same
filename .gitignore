@@ -1,0 +1,5 @@
+codecov.json
+lcov.info
+.unittest/
+bin/
+export/
