@@ -1,0 +1,5 @@
+<vbox style="padding: 5px;" width="320px" height="100%">
+    <spacer height="100%" />
+    <label id="winloss" text="xxxx" width="100%" textAlign="center" style="font-size:24px;" />
+    <spacer height="100%" />
+</vbox>

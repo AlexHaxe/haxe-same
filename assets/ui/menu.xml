@@ -1,0 +1,17 @@
+<vbox style="padding: 5px;" width="100px" height="100%">
+    <button id="newgame" text="New Game" width="100%"/>
+    <button id="restart" text="Restart" width="100%"/>
+
+    <label text="Colors:" width="100%"/>
+    <button-bar id="colors" width="100%">
+        <button text="2" style="padding: 11px"/>
+        <button text="3" style="padding: 11px"/>
+        <button text="4" style="padding: 11px"/>
+    </button-bar>
+
+    <spacer height="100%" />
+
+    <label text="Seed:" width="100%"/>
+    <textfield id="seed" width="100%"/>
+    <button id="setseed" text="Set Seed" width="100%"/>
+</vbox>

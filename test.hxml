@@ -1,0 +1,22 @@
+-cp src
+-cp tests
+
+-lib utest
+-lib instrument
+-lib test-adapter
+-lib lime
+-lib openfl
+-lib flixel
+-lib haxeui-core
+-lib haxeui-flixel
+
+-D coverage-console-summary-reporter
+-D coverage-console-package-summary-reporter
+-D coverage-console-file-summary-reporter
+-D coverage-lcov-reporter
+-D coverage-codecov-reporter
+-D instrument-quiet
+
+--macro instrument.Instrumentation.coverage(['data', 'utils'], ['src'], [])
+
+--run TestMain

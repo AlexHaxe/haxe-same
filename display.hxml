@@ -1,0 +1,14 @@
+-cp src
+-cp tests
+-cp uitests
+
+-lib utest
+-lib lime
+-lib openfl
+-lib flixel
+-lib haxeui-core
+-lib haxeui-flixel
+-lib haxeium
+-lib hxWebSockets
+
+-D html5
