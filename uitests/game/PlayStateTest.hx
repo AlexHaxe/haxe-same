@@ -5,16 +5,12 @@ import haxeium.Wait;
 import haxeium.test.TestBaseAllRestarts;
 import haxeium.test.TestBaseOneInstance;
 
-// class PlayStateTest extends TestBaseOneInstance {
 class PlayStateTest extends TestBaseAllRestarts {
-	// 	override function teardownClass() {}
-	//
-	// 	override function teardown() {}
 	public function testSolve_12345() {
 		Wait.untilElementBecomesVisible(ById("seed"));
 
 		var seed = driver.findElement(ById("seed"));
-		new Actions().doubleClick(seed).sendKeys("12345").perform();
+		new Actions().doubleClick(seed).pause(0.2).sendKeys("12345").perform();
 		Wait.untilPropertyEqualsValue(seed.locator, "text", "12345");
 
 		var button = driver.findElement(ById("setseed"));
@@ -63,7 +59,7 @@ class PlayStateTest extends TestBaseAllRestarts {
 		Wait.untilElementBecomesVisible(ById("seed"));
 
 		var seed = driver.findElement(ById("seed"));
-		new Actions().doubleClick(seed).sendKeys("12345").perform();
+		new Actions().doubleClick(seed).pause(0.2).sendKeys("12345").perform();
 		Wait.untilPropertyEqualsValue(seed.locator, "text", "12345");
 
 		var button = driver.findElement(ById("setseed"));

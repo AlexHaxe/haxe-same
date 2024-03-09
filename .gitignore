@@ -3,3 +3,4 @@ lcov.info
 .unittest/
 bin/
 export/
+screenshots/

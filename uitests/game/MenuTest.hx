@@ -5,11 +5,7 @@ import haxeium.Wait;
 import haxeium.test.TestBaseAllRestarts;
 import haxeium.test.TestBaseOneInstance;
 
-// class MenuTest extends TestBaseOneInstance {
 class MenuTest extends TestBaseAllRestarts {
-	// 	override function teardownClass() {}
-	//
-	// 	override function teardown() {}
 	public function testNewGameSeed() {
 		Wait.untilElementBecomesVisible(ById("seed"));
 		var seed = driver.findElement(ById("seed"));
@@ -47,7 +43,7 @@ class MenuTest extends TestBaseAllRestarts {
 		Wait.untilElementBecomesVisible(ById("seed"));
 
 		var seed = driver.findElement(ById("seed"));
-		new Actions().doubleClick(seed).sendKeys("12345").perform();
+		new Actions().doubleClick(seed).pause(0.2).sendKeys("12345").perform();
 
 		Wait.untilPropertyEqualsValue(seed.locator, "text", "12345");
 
