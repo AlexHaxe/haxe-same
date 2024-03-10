@@ -1,6 +1,6 @@
 # hxSame game
 
-remove all colored tiles to win the game!
+remove all colored tiles to win the [game](https://AlexHaxe.github.io/haxe-same)!
 
 ## installation
 
