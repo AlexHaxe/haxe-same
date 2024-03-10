@@ -40,7 +40,9 @@ jobs:
       - name: Run npm install
         run: npm i lix
       - name: Run lix download
-        run: npx lix download
+        run: |
+          npx lix download
+          echo "y" | npx haxelib run lime setup
       - name: Compile Html5 app
         run: npx lime build html5
       - name: Upload artifact
