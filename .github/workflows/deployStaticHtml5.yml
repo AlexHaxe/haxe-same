@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 14
       - name: Run npm install
-        run: npm ci
+        run: npm i lix
       - name: Run lix download
         run: npx lix download
       - name: Compile Html5 app
