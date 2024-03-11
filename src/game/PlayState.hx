@@ -11,6 +11,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.input.mouse.FlxMouseEvent;
+import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import utils.RandomLCG;
 
