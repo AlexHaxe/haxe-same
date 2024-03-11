@@ -3,7 +3,6 @@ package game;
 import haxeium.Actions;
 import haxeium.Wait;
 import haxeium.test.TestBaseAllRestarts;
-import haxeium.test.TestBaseOneInstance;
 
 class MenuTest extends TestBaseAllRestarts {
 	public function testNewGameSeed() {
