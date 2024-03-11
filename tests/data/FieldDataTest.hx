@@ -18,11 +18,31 @@ class FieldDataTest implements ITest {
 		Assert.isTrue(field.isUnchanged());
 	}
 
-	public function testClickOnSingle() {
+	public function testClickOnSingleTwoColors() {
 		var field = new TestFieldData();
-		field.init(14, 7, ThreeColors, 12345);
+		field.init(15, 11, TwoColors, 12345);
 		field.makeBackup();
-		field.clicked(2, 0);
+		field.clicked(0, 3);
+		Assert.isFalse(field.hasWon());
+		Assert.isFalse(field.isGameOver());
+		Assert.isTrue(field.isUnchanged());
+	}
+
+	public function testClickOnSingleThreeColors() {
+		var field = new TestFieldData();
+		field.init(15, 11, ThreeColors, 12345);
+		field.makeBackup();
+		field.clicked(0, 2);
+		Assert.isFalse(field.hasWon());
+		Assert.isFalse(field.isGameOver());
+		Assert.isTrue(field.isUnchanged());
+	}
+
+	public function testClickOnSingleFourColors() {
+		var field = new TestFieldData();
+		field.init(15, 11, FourColors, 12345);
+		field.makeBackup();
+		field.clicked(0, 3);
 		Assert.isFalse(field.hasWon());
 		Assert.isFalse(field.isGameOver());
 		Assert.isTrue(field.isUnchanged());
@@ -88,41 +108,6 @@ class FieldDataTest implements ITest {
 		Assert.isFalse(field.hasWon());
 		field.clicked(0, 10);
 
-		// 		field.clicked(7, 1);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 3);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 5);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(12, 5);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(10, 1);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(13, 3);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(10, 4);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(7, 2);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 6);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 6);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(2, 3);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(5, 5);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(2, 4);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 6);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 6);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(7, 6);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 6);
-		// 		Assert.isFalse(field.hasWon());
-		// 		field.clicked(0, 6);
 		Assert.isTrue(field.hasWon());
 	}
 
@@ -165,6 +150,7 @@ class FieldDataTest implements ITest {
 		field.clicked(0, 6);
 		Assert.isFalse(field.isGameOver());
 		field.clicked(0, 6);
+
 		Assert.isTrue(field.isGameOver());
 	}
 }

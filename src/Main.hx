@@ -1,9 +1,6 @@
-import haxe.Timer;
 import haxe.ui.Toolkit;
 import flixel.FlxGame;
 import game.PlayState;
-import openfl.display.DisplayObject;
-import openfl.display.DisplayObjectContainer;
 import openfl.display.Sprite;
 
 class Main extends Sprite {

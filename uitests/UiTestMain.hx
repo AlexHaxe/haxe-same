@@ -12,6 +12,7 @@ class UiTestMain {
 		// lime test html5
 		var driver = new AppDriver("localhost", 9999, null);
 		#end
+
 		#if linux_ui
 		// lime build linux
 		new AppDriver("localhost", 9999, new AppRestarter("./hxSame", [], "export/linux/bin"));
