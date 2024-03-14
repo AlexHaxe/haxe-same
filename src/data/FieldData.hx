@@ -10,8 +10,11 @@ class FieldData {
 	public var seed(default, null):UInt;
 	public var type(default, null):FieldType;
 
+	var moves:Array<Move>;
+
 	public function new() {
 		fields = [];
+		moves = [];
 		cols = 7;
 		rows = 7;
 	}
@@ -21,6 +24,7 @@ class FieldData {
 		this.rows = rows;
 		this.seed = seed;
 		this.type = type;
+		moves = [];
 		#if debug
 		trace('init $type field with ${cols}x${rows} with seed $seed');
 		#end
@@ -103,7 +107,7 @@ class FieldData {
 	}
 
 	public function clicked(col:Int, row:Int):Bool {
-		trace("clicked " + col + " " + row);
+		trace("click " + col + "x" + row);
 		var color:Field = getFieldAt(col, row);
 		var count:Int = 0;
 		if (color == Empty) {
@@ -114,6 +118,7 @@ class FieldData {
 		if (count <= 0) {
 			return false;
 		}
+		moves.push({col: col, row: row});
 		fields[xy(col, row)] = Empty;
 		applyGravity();
 		return true;
@@ -225,6 +230,20 @@ class FieldData {
 	public inline function getFieldAt(col:Int, row:Int):Field {
 		return fields[xy(col, row)];
 	}
+
+	public function undo():Bool {
+		if (moves.length <= 0) {
+			return false;
+		}
+		var oldMoves = moves;
+		init(this.cols, this.rows, this.type, this.seed);
+		var lastMove:Move = oldMoves.pop();
+		trace('undo ${lastMove.col}x${lastMove.row}');
+		for (move in oldMoves) {
+			clicked(move.col, move.row);
+		}
+		return true;
+	}
 }
 
 enum Field {
@@ -239,4 +258,9 @@ enum FieldType {
 	TwoColors;
 	ThreeColors;
 	FourColors;
+}
+
+typedef Move = {
+	var col:Int;
+	var row:Int;
 }

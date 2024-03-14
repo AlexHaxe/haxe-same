@@ -11,7 +11,6 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.input.mouse.FlxMouseEvent;
-import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import utils.RandomLCG;
 
@@ -137,6 +136,13 @@ class PlayState extends FlxState {
 			fieldData.init(fieldData.cols, fieldData.rows, type, fieldData.seed);
 			updateWinLoss("");
 			updateField();
+		}
+		var buttonUndo:Button = menu.findComponent("undo", Button);
+		buttonUndo.onClick = function(e) {
+			if (fieldData.undo()) {
+				updateWinLoss("");
+				updateField();
+			}
 		}
 	}
 

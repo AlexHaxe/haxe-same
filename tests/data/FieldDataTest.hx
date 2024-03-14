@@ -153,6 +153,82 @@ class FieldDataTest implements ITest {
 
 		Assert.isTrue(field.isGameOver());
 	}
+
+	function testUndo() {
+		var field = new TestFieldData();
+		field.init(15, 11, ThreeColors, 12345);
+
+		field.makeBackup();
+		field.clicked(11, 2);
+		Assert.isFalse(field.isUnchanged());
+		field.undo();
+		Assert.isTrue(field.isUnchanged());
+	}
+
+	function testUndoVictory() {
+		var field = new FieldData();
+		field.init(15, 11, ThreeColors, 12345);
+
+		field.clicked(11, 2);
+		field.clicked(12, 3);
+		field.clicked(13, 4);
+		field.clicked(12, 6);
+		field.clicked(14, 5);
+		field.clicked(12, 6);
+		field.clicked(13, 6);
+		field.clicked(13, 7);
+		field.clicked(13, 9);
+		field.clicked(11, 9);
+		field.clicked(11, 10);
+		field.clicked(10, 7);
+		field.clicked(9, 5);
+		field.clicked(9, 5);
+		field.clicked(1, 4);
+		field.clicked(1, 5);
+		field.clicked(1, 6);
+		field.clicked(2, 8);
+		field.clicked(3, 9);
+		field.clicked(4, 9);
+		field.clicked(2, 10);
+		field.clicked(3, 10);
+		field.clicked(10, 10);
+		field.clicked(8, 10);
+		field.clicked(1, 10);
+		field.clicked(1, 10);
+		field.clicked(0, 10);
+		field.clicked(0, 10);
+		Assert.isTrue(field.hasWon());
+
+		field.undo();
+		Assert.isFalse(field.hasWon());
+	}
+
+	function testUndoGameOver() {
+		var field = new FieldData();
+		field.init(14, 7, ThreeColors, 12345);
+		field.clicked(7, 1);
+		field.clicked(0, 3);
+		field.clicked(0, 5);
+		field.clicked(12, 5);
+		field.clicked(10, 1);
+		field.clicked(13, 3);
+		field.clicked(10, 4);
+		field.clicked(7, 2);
+		field.clicked(0, 6);
+		field.clicked(0, 6);
+		field.clicked(2, 3);
+		field.clicked(5, 5);
+		field.clicked(2, 4);
+		field.clicked(0, 6);
+		field.clicked(0, 6);
+		field.clicked(7, 6);
+		field.clicked(0, 6);
+		field.clicked(0, 6);
+		Assert.isTrue(field.isGameOver());
+
+		field.undo();
+		Assert.isFalse(field.isGameOver());
+	}
 }
 
 class TestFieldData extends FieldData {
