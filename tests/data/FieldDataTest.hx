@@ -154,6 +154,15 @@ class FieldDataTest implements ITest {
 		Assert.isTrue(field.isGameOver());
 	}
 
+	function testUndoNewGame() {
+		var field = new TestFieldData();
+		field.init(15, 11, ThreeColors, 12345);
+
+		field.makeBackup();
+		field.undo();
+		Assert.isTrue(field.isUnchanged());
+	}
+
 	function testUndo() {
 		var field = new TestFieldData();
 		field.init(15, 11, ThreeColors, 12345);

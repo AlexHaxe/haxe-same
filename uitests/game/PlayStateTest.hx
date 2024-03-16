@@ -3,7 +3,6 @@ package game;
 import haxeium.Actions;
 import haxeium.Wait;
 import haxeium.test.TestBaseAllRestarts;
-import haxeium.test.TestBaseOneInstance;
 
 class PlayStateTest extends TestBaseAllRestarts {
 	public function testSolve_12345() {
@@ -17,11 +16,6 @@ class PlayStateTest extends TestBaseAllRestarts {
 		button.click();
 		Sys.sleep(0.02);
 
-		function clickField(col:Int, row:Int) {
-			var flx = driver.findElement(ByPath(["flixel.group.FlxTypedGroup-1", 'game.FieldSprite-${col + row * 15}']));
-			flx.click();
-			Sys.sleep(0.02);
-		}
 		clickField(11, 2);
 		clickField(12, 3);
 		clickField(13, 4);
@@ -66,11 +60,6 @@ class PlayStateTest extends TestBaseAllRestarts {
 		button.click();
 		Sys.sleep(0.02);
 
-		function clickField(col:Int, row:Int) {
-			var flx = driver.findElement(ByPath(["flixel.group.FlxTypedGroup-1", 'game.FieldSprite-${col + row * 15}']));
-			flx.click();
-			Sys.sleep(0.02);
-		}
 		clickField(12, 4);
 		clickField(10, 4);
 		clickField(11, 5);
@@ -113,11 +102,6 @@ class PlayStateTest extends TestBaseAllRestarts {
 		button.click();
 		Sys.sleep(0.02);
 
-		function clickField(col:Int, row:Int) {
-			var flx = driver.findElement(ByPath(["flixel.group.FlxTypedGroup-1", 'game.FieldSprite-${col + row * 15}']));
-			flx.click();
-			Sys.sleep(0.02);
-		}
 		clickField(11, 2);
 		clickField(12, 3);
 		clickField(13, 4);
@@ -155,5 +139,11 @@ class PlayStateTest extends TestBaseAllRestarts {
 		Sys.sleep(0.02);
 
 		equals("", winLossLabel.text);
+	}
+
+	function clickField(col:Int, row:Int) {
+		var flx = driver.findElement(ByPath(["flixel.group.FlxTypedGroup-1", 'game.FieldSprite-${col + row * 15}']));
+		flx.click();
+		Sys.sleep(0.02);
 	}
 }
