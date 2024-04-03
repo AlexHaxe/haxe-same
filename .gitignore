@@ -1,6 +1,7 @@
 codecov.json
 lcov.info
 .unittest/
+.haxelsp/
 bin/
 export/
 screenshots/

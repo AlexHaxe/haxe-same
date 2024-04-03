@@ -7,6 +7,7 @@ class Main extends Sprite {
 	public function new() {
 		super();
 		Toolkit.init();
+		Toolkit.scale = 1;
 		addChild(new FlxGame(420, 240, PlayState, true));
 
 		#if uitests
