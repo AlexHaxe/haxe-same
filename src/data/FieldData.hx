@@ -28,31 +28,9 @@ class FieldData {
 		#if debug
 		trace('init $type field with ${cols}x${rows} with seed $seed');
 		#end
+		var generator:FieldGenerator = new FieldGenerator(cols, rows, type, seed);
 
-		var lcg:RandomLCG = new RandomLCG(seed);
-		var mod = switch (type) {
-			case TwoColors: 2;
-			case ThreeColors: 3;
-			case FourColors: 4;
-		}
-
-		function makeField():Field {
-			var x = switch (lcg.randMS() % mod) {
-				case 0:
-					Red;
-				case 1:
-					Blue;
-				case 2:
-					Green;
-				case 3:
-					Yellow;
-				case _:
-					Empty;
-			}
-			return x;
-		}
-
-		fields = [for (i in 0...cols * rows) makeField()];
+		fields = generator.generate();
 	}
 
 	#if (sys || nodejs)
